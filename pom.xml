@@ -301,6 +301,10 @@
       </snapshots>
     </repository>
     <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+    <repository>
       <id>jcenter</id>
       <url>https://jcenter.bintray.com/</url>
     </repository>
