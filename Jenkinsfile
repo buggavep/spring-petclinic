@@ -15,7 +15,7 @@ pipeline {
     
         stage('Build Image') {
             steps {
-                sh './mvnw spring-boot:build-image'
+                sh './mvnw spring-boot:build-image && docker image list'
             }
         }
         
