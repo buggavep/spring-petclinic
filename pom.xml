@@ -300,6 +300,10 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
+    <repository>
+        <id>jcenter-remote</id>
+        <url>http://localhost:8081/artifactory/jcenter-remote</url>
+    </repository>
   </repositories>
 
   <pluginRepositories>
