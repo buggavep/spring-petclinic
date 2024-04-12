@@ -19,20 +19,14 @@ pipeline {
             }
         }
         
-        // stage('Package') {
-        //     steps {
-        //         sh 'docker build -f Dockerfile-8u131 -t buggavep/hello-world .'
-        //     }
-        // }
-        
-        // stage('Push') {
-        //     steps {
-        //         withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-        //             sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-        //             sh 'docker tag buggavep/hello-world buggavep/hello-world:latest'
-        //             sh 'docker push buggavep/hello-world:latest'
-        //         }
-        //     }
-        // }
+        stage('Push') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+                    sh 'docker tag docker.io/library/spring-petclinic:3.2.0-SNAPSHOT buggavep/spring-petclinic:1.0'
+                    sh 'docker push buggavep/spring-petclinic:1.0'
+                }
+            }
+        }
     }
 }
